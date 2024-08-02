@@ -15,7 +15,25 @@ export const FetchFilmsDay = async () => {
 };
 
 export const FetchFilmsById = async (id) => {
-  const response = await axios.get(`https://api.themoviedb.org/3/trending/movie/day/${id}?language=en-US`, options);
+  const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}?language=en-US`, options);
 
-  return response;
+  return response.data;
+};
+
+export const FetchCast = async (id) => {
+  const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`, options);
+
+  return response.data.cast;
+};
+
+export const FethReviews = async (id) => {
+  const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}/reviews?language=en-US&page=1`, options);
+  console.log(response.data.results);
+
+  return response.data.results;
+};
+
+export const FetchFilmsByQuery = async (query) => {
+  const response = await axios.get(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`, options);
+  return response.data.results;
 };

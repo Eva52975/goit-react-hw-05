@@ -16,7 +16,6 @@ const HomePage = () => {
       console.log(error);
     }
   }, []);
-  console.log(dayFilms);
 
   return (
     <>
