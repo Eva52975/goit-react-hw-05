@@ -1,11 +1,19 @@
-import { Outlet, useParams, NavLink } from "react-router-dom";
+import { Outlet, useParams, NavLink, useLocation, Link } from "react-router-dom";
 import { FetchFilmsById } from "../../services/api";
 import { useEffect, useState } from "react";
 import c from "./MovieDetailsPage.module.css";
+import clsx from "clsx";
+import { useRef } from "react";
+
+const buildLinkClass = ({ isActive }) => {
+  return clsx(c.link, isActive && c.active);
+};
 
 const MovieDetailsPage = () => {
   const [film, setFilms] = useState();
   const params = useParams();
+  const location = useLocation();
+  const goBackRef = useRef(location?.state || "/movies");
 
   useEffect(() => {
     try {
@@ -27,7 +35,9 @@ const MovieDetailsPage = () => {
 
   return (
     <>
-      {" "}
+      <Link to={goBackRef.current}>
+        <h3 className={c.reference}>Go to back</h3>
+      </Link>
       <div className={c.description}>
         <div>
           <h2 className={c.title}>
@@ -49,8 +59,12 @@ const MovieDetailsPage = () => {
         </div>
       </div>
       <div className={c.flex}>
-        <NavLink to="cast">Cast</NavLink>
-        <NavLink to="reviews">Reviews</NavLink>
+        <NavLink className={buildLinkClass} to="cast">
+          <h2>Cast</h2>
+        </NavLink>
+        <NavLink className={buildLinkClass} to="reviews">
+          <h2>Reviews</h2>
+        </NavLink>
       </div>
       <Outlet />
     </>

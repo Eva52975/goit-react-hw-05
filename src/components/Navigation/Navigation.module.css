@@ -6,3 +6,7 @@
 .item:hover {
   color: rgb(202, 195, 195);
 }
+
+.active {
+  text-decoration-line: underline;
+}

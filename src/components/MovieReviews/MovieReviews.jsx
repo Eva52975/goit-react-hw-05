@@ -29,7 +29,7 @@ const MovieReviews = () => {
   }
   return (
     <>
-      <ul>
+      <ul className={c.list}>
         {reviews.map((item) => (
           <li className={c.item} key={item.id}>
             <h4>{item.author}</h4>

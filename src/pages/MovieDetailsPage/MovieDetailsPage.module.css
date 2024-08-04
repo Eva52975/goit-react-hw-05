@@ -24,3 +24,12 @@
   flex-direction: column;
   gap: 8px;
 }
+
+.active {
+  text-decoration-line: underline;
+}
+
+.reference {
+  margin-top: 10px;
+  color: rgb(116, 91, 60);
+}

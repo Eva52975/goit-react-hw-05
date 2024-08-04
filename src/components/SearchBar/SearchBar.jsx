@@ -10,9 +10,11 @@ const SearchBar = ({ handleChangeValue }) => {
       toast.error("Please enter a name");
       return;
     }
+
     handleChangeValue(topic);
     form.reset();
   };
+
   return (
     <div>
       <form className={c.form} onSubmit={handleSubmit}>
