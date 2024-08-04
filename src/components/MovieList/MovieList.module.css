@@ -1,4 +1,18 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(5, 250px);
+  gap: 20px;
+  margin-top: 20px;
+}
 
+.title:hover {
+  color: rgb(190, 187, 187);
+}
 
+.item {
+  transition: transform 0.5s ease;
+}
 
-
+.item:hover {
+  transform: translateY(12px);
+}

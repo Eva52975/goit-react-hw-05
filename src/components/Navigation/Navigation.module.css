@@ -1,4 +1,8 @@
 .list {
   display: flex;
-  gap: 20px;
+  gap: 50px;
+}
+
+.item:hover {
+  color: rgb(202, 195, 195);
 }

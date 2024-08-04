@@ -6,11 +6,15 @@ const Navigation = () => {
     <header className={c.header}>
       <nav>
         <ul className={c.list}>
-          <li>
-            <NavLink to="/">Home</NavLink>
+          <li className={c.item}>
+            <NavLink to="/">
+              <h2>Home</h2>
+            </NavLink>
           </li>
-          <li>
-            <NavLink to="/movies">Movies</NavLink>
+          <li className={c.item}>
+            <NavLink to="/movies">
+              <h2>Movies</h2>
+            </NavLink>
           </li>
         </ul>
       </nav>

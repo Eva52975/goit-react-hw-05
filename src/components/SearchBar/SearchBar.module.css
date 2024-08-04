@@ -1,0 +1,28 @@
+.input {
+  width: 300px;
+  height: 40px;
+  border-radius: 6px;
+  background-color: transparent;
+  border: 2px solid rgb(189, 189, 154);
+  outline: none;
+  margin-right: 30px;
+}
+
+.input::placeholder {
+  color: white;
+  font-size: 15px;
+}
+
+.button {
+  width: 100px;
+  height: 40px;
+  border-radius: 6px;
+  border: none;
+  background-color: rgb(146, 38, 38);
+  font-size: 15px;
+  color: white;
+}
+
+.button:hover {
+  background-color: rgb(141, 57, 29);
+}

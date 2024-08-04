@@ -1,4 +1,5 @@
 import toast, { Toaster } from "react-hot-toast";
+import c from "./SearchBar.module.css";
 
 const SearchBar = ({ handleChangeValue }) => {
   const handleSubmit = (evt) => {
@@ -14,9 +15,11 @@ const SearchBar = ({ handleChangeValue }) => {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input placeholder="Search" type="search" name="topic" />
-        <button type="submit">Search</button>
+      <form className={c.form} onSubmit={handleSubmit}>
+        <input className={c.input} placeholder="Search..." type="search" name="topic" />
+        <button className={c.button} type="submit">
+          Search
+        </button>
         <Toaster />
       </form>
     </div>
