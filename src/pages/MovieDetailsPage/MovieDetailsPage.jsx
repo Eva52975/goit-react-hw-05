@@ -1,6 +1,6 @@
 import { Outlet, useParams, NavLink, useLocation, Link } from "react-router-dom";
 import { FetchFilmsById } from "../../services/api";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import c from "./MovieDetailsPage.module.css";
 import clsx from "clsx";
 import { useRef } from "react";
@@ -44,7 +44,7 @@ const MovieDetailsPage = () => {
             {` ${film.title} 
           (${film.release_date.slice(0, 4)})`}
           </h2>
-          <img src={`https://image.tmdb.org/t/p/w400${film.backdrop_path}`} />
+          <img src={`https://image.tmdb.org/t/p/w400${film.backdrop_path}`} alt={film.title} />
         </div>
 
         <div className={c.wrap}>
@@ -66,7 +66,9 @@ const MovieDetailsPage = () => {
           <h2>Reviews</h2>
         </NavLink>
       </div>
-      <Outlet />
+      <Suspense fallback={<h2>Loading...</h2>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

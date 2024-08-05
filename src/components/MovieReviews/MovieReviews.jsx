@@ -19,8 +19,6 @@ const MovieReviews = () => {
     }
   }, [params.movieId]);
 
-  console.log(reviews);
-
   if (!reviews) {
     return <h2>Loading...</h2>;
   }
