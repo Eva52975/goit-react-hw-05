@@ -5,16 +5,16 @@ import MovieList from "../../components/MovieList/MovieList";
 const HomePage = () => {
   const [dayFilms, setDayFilms] = useState([]);
   useEffect(() => {
-    try {
-      const getData = async () => {
+    const getData = async () => {
+      try {
         const data = await FetchFilmsDay();
 
         setDayFilms(data.results);
-      };
-      getData();
-    } catch (error) {
-      console.log(error);
-    }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getData();
   }, []);
 
   return (

@@ -21,23 +21,21 @@ const MoviesPage = () => {
   };
 
   useEffect(() => {
-    try {
-      if (!searchParams.get("query")) {
-        return;
-      }
-
-      const getData = async () => {
+    if (!searchParams.get("query")) {
+      return;
+    }
+    const getData = async () => {
+      try {
         const data = await FetchFilmsByQuery(searchParams.get("query"));
         if (data.length === 0) {
           return toast("Sorry, not found");
         }
-
         setfilmByQuery(data);
-      };
-      getData();
-    } catch (error) {
-      console.log(error);
-    }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getData();
   }, [searchParams]);
 
   return (

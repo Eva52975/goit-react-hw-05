@@ -16,17 +16,15 @@ const MovieDetailsPage = () => {
   const goBackRef = useRef(location?.state || "/movies");
 
   useEffect(() => {
-    try {
-      const getData = async () => {
+    const getData = async () => {
+      try {
         const data = await FetchFilmsById(params.movieId);
-
         setFilms(data);
-      };
-
-      getData();
-    } catch (error) {
-      console.log(error);
-    }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getData();
   }, [params.movieId]);
 
   if (!film) {
